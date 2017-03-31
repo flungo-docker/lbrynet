@@ -34,11 +34,14 @@ docker rm lbrynet
 The image contains both `curl` and `lbrynet-cli` commands which can be used through `docker exec`. Examples:
 
 ```
-docker exec lbrynet curl 'http://localhost:5279/lbryapi' --data '{"method":"resolve_name","params":{"name":"what"}}'
+docker exec lbrynet \
+  curl 'http://localhost:5279/lbryapi' \
+  --data '{"method":"resolve_name","params":{"name":"what"}}'
 ```
 
 ```
-docker exec lbrynet lbrynet-cli resolve_name name=what
+docker exec lbrynet \
+  lbrynet-cli resolve_name name=what
 ```
 
 If the client is used exclusively through `docker exec` there is no need publish the `5279` port on the host machine.
