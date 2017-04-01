@@ -1,6 +1,6 @@
 # Docker image for LBRY.io
 
-Docker image for the [LBRY.io](https://lbry.io) daemon and client.
+Docker image for the [LBRY.io](https://lbry.io) daemon and client. The image uses the latest release binaries that were available at the time of being built.
 
 At present this has just been created to test out the LBRY service and may have bugs or problems as well as lack in documentation, feel free to submit PRs on [GitHub](https://github.com/flungo-docker/lbry.io). Use at your own discretion. Ensure that you make `/home/lbry/.lbryum` persistent if you don't want to loose the LBC in your wallet.
 
@@ -27,7 +27,10 @@ Providing the `/home/lbry/.lbrynet` and `/home/lbry/.lbryum` are persisted, the 
 ```
 docker stop lbrynet
 docker rm lbrynet
+docker pull flungo/lbry.io
 ```
+
+If the image is out of date (a newer version has been released than the date this image was last built), send me ([@flungo](https://lbry.slack.com/messages/@flungo/)) a message on the [lbry.io slack](https://slack.lbry.io). The version of the image can also be checked using `docker run --rm flungo/lbry.io lbrynet-daemon --version` (make sure you pull to get the latest). You may also wish to build the image yourself by downloading from [GitHub](https://github.com/flungo-docker/lbry.io) and running `docker build -t flungo/lbry.io src/` inside the repo.
 
 ## Using the client
 
